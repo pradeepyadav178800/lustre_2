@@ -14,8 +14,15 @@ echo "ERROR: Dependency packages installation failed."
 exit 1
 fi
 
-cd /opt/lustre-temp/e2fsprogs-wc/RPMS/x86_64/
-yum localinstall *.rpm -y
+#cd /opt/lustre-temp/e2fsprogs-wc/RPMS/x86_64/
+#yum localinstall *.rpm -y
+cd /opt/lustre-temp/
+wget https://github.com/pradeepyadav178800/lustre_2/raw/develop/lustre_rpm_packages/lustre_server_pkg.zip
+unzip lustre_server_pkg.zip
+cd package
+yum localinstall e2fsprogs-1.45.6.wc1-0.el7.x86_64.rpm e2fsprogs-debuginfo-1.45.6.wc1-0.el7.x86_64.rpm e2fsprogs-devel-1.45.6.wc1-0.el7.x86_64.rpm e2fsprogs-libs-1.45.6.wc1-0.el7.x86_64.rpm e2fsprogs-static-1.45.6.wc1-0.el7.x86_64.rpm libcom_err-1.45.6.wc1-0.el7.x86_64.rpm libcom_err-devel-1.45.6.wc1-0.el7.x86_64.rpm libss-1.45.6.wc1-0.el7.x86_64.rpm libss-devel-1.45.6.wc1-0.el7.x86_64.rpm -y
+
+
 if [ $? -eq 0 ]
 then
 echo "Lustre packages installation successful."
@@ -25,7 +32,7 @@ exit 1
 fi
 
 
-cd /opt/lustre-temp/lustre-server/RPMS/x86_64/
+#cd /opt/lustre-temp/lustre-server/RPMS/x86_64/
 yum remove kernel-tools kernel-tools-libs -y
 ## Kernel Modules, please slect the kernel version based on your server in my case it is "3.10.0-162" from script 1
 #new
