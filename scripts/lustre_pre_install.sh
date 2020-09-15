@@ -100,7 +100,9 @@ fi
 # Downloading all the rpm packegs required for the lustre
 mkdir -p  /opt/lustre-temp/
 cd /opt/lustre-temp/
-reposync -c /tmp/lustre-repo.conf -n -r lustre-server -r lustre-client -r e2fsprogs-wc
+wget https://github.com/pradeepyadav178800/lustre_2/raw/develop/lustre_packages.zip
+unzip lustre_packages.zip
+
 if [ $? -eq 0 ] 
 then
 echo "Dependency packages downloaded successful."
@@ -110,9 +112,7 @@ exit 1
 fi
 
 echo "Downloading and installing kernel dependency packages"
-wget http://rpmfind.net/linux/centos/7/os/x86_64/Packages/resource-agents-4.1.1-46.el7.x86_64.rpm
-wget http://rpmfind.net/linux/centos/7/os/x86_64/Packages/psmisc-22.20-16.el7.x86_64.rpm
-rpm -ivh *.rpm
+yum localinstall resource-agents-4.1.1-46.el7.x86_64.rpm psmisc-22.20-16.el7.x86_64.rpm -y
 if [ $? -eq 0 ] 
 then
 echo " Kernel dependency installed successfully."
