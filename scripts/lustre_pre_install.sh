@@ -121,7 +121,6 @@ echo "ERROR: failed to install kernel dependency packages."
 exit 1
 fi
 ## Please check the kernel only rpm package kernel-3.* In My case it is 3.
-cd /opt/lustre-temp/lustre-server/RPMS/x86_64/
 yum localinstall kernel-3.10.0-1062.9.1.el7_lustre.x86_64.rpm  -y
 if [ $? -eq 0 ] 
 then
