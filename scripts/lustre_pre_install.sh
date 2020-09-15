@@ -100,7 +100,7 @@ fi
 # Downloading all the rpm packegs required for the lustre
 mkdir -p  /opt/lustre-temp/
 cd /opt/lustre-temp/
-wget https://github.com/pradeepyadav178800/lustre_2/raw/develop/lustre_packages.zip
+wget https://github.com/pradeepyadav178800/lustre_2/raw/develop/lustre_rpm_packages/lustre_packages.zip
 unzip lustre_packages.zip
 
 if [ $? -eq 0 ] 
