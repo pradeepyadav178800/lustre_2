@@ -73,7 +73,7 @@ yum install kernel-$VER kernel-devel-$VER kernel-headers-$VER kernel-abi-whiteli
 fail_if_error $? "ERROR: kernel package installation failed."
 
 echo "Downloading and installing lustre packages "
-mkdir -p /tmp/package
+mkdir -p /tmp/lustre_package
 cd /tmp/lustre_package
 wget https://github.com/pradeepyadav178800/lustre_2/raw/develop/lustre_rpm_packages/lustre_packages.zip
 unzip lustre_packages.zip
